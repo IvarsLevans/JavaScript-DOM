@@ -12,6 +12,7 @@ list.addEventListener('click', (e){
 const addForm = forms['add-book'];
 addForm.addEventListener('submit', function(e){
   e.preventDefault();
+  
   const value = addForm.querySelector('input[type="text"]').value;
   // create elements
   const li = document.createElement('li');
@@ -22,7 +23,11 @@ addForm.addEventListener('submit', function(e){
   deleteBtn.textContent = 'delete';
   bookName.textContent = value;
 
-  // append to DOM
+  // add classes 
+  bookName.classList.add('name');
+  deleteBtn.classList.add('delete');
+
+  // append to documents
   li.appendChild(bookName);
   li.appendChild(deleteBtn);
   list.appendChild(li);
