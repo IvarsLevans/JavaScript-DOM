@@ -15,9 +15,17 @@ addForm.addEventListener('submit', function(e){
 // hide books
 const hideBox = document.querySelector('#hide');
 hideBox.addEventListener('change', function(e){
-  if(hideBox.checked){
-    list.style.display = "none";
-  } else {
-    list.style.display = "initial";
-  }
-});
+
+// filter block
+const searchBar = document.forms['search-books'];
+searchBar.addEventListener('keyup', functions(e){
+        const term = e.target.value.toLowerCase();
+        const books = list.getElementsByTagName('li');
+        Array.form(books).forEach(functions(book){
+            const title = book.firstElementChild.textCotent;
+            if(title.toLowerCase().indexOf(term)) != -1{
+                book.style.display = 'block';
+            } else {
+                book.style.display = 'none';
+            }
+        }}
